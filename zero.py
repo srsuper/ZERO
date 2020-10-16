@@ -8,7 +8,9 @@ from urbandictionary_top import udtop
 from googletrans import Translator
 from flask import Flask, request, abort
 from bs4 import BeautifulSoup as bs
-
+import numpy as np
+import pandas as pd
+import requests
 from linebot import (
 	LineBotApi, WebhookHandler
 )
@@ -547,6 +549,82 @@ def handle_text_message(event):
 				result += entry.definition
 		return result
 	
+dat = pd.read_excel('addb.xlsx')
+def getdata(query):
+    res = dat[dat['QueryWord']==query]
+    if len(res)==0:
+        return 'nodata'
+    else:
+        productName = res['ProductName'].values[0]
+        imgUrl = res['ImgUrl'].values[0]
+        desc = res['Description'].values[0]
+        cont = res['Contact'].values[0]
+        return productName,imgUrl,desc,cont
+
+def flexmessage(query):
+    res = getdata(query)
+    if res == 'nodata':
+        return 'nodata'
+    else:
+        productName,imgUrl,desc,cont = res
+    flex = '''
+    {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "%s",
+          "margin": "none",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com"
+          },
+          "contents": [
+            {
+              "type": "text",
+              "text": "%s",
+              "size": "xl",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "%s",
+              "wrap": true
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "ติดต่อคนขาย",
+                "data": "%s"
+              },
+              "color": "#F67878",
+              "style": "primary"
+            }
+          ]
+        }
+      }'''%(imgUrl,productName,desc,cont)
+    return flex
+
 	if text == '/help':
 		line_bot_api.reply_message(
 				event.reply_token,
