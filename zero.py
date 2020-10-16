@@ -625,7 +625,21 @@ def flexmessage(query):
         }
        }'''%(imgUrl,productName,desc,cont)
        return flex
+       from linebot.models import (TextSendMessage,FlexSendMessage)
+       import json
 
+       def handle_text(inpmessage):
+       flex = flexmessage(inpmessage)
+       if flex == 'nodata':
+        replyObj = TextSendMessage(text=inpmessage)
+       else:
+        flex = json.loads(flex)
+        replyObj = FlexSendMessage(alt_text='Flex Message alt text', contents=flex)
+      return replyObj
+
+def handle_postback(inpmessage):
+    replyObj = TextSendMessage(text=inpmessage)
+    return replyObj
 	if text == '/help':
 		line_bot_api.reply_message(
 				event.reply_token,
