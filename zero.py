@@ -23,8 +23,8 @@ save_file = {}
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+line_bot_api = LineBotApi('gsuH132DDprZ0Ja4TQqPpS8a7gYFw9rowYIZWIiYkkAmUY9+ckBZ817KElfSwV8KsLmTRp7ZWbUjkgw9umOBKcpjjzCu/REJCERZbvGoAfXeySkZAxWKTV3E7cechLU0i4DN+jJXSaXkHdQyaLuluFGUYhWQfeY8sLGRXgo3xvw=')
+handler = WebhookHandler('50731752bd3e7e0922762b6790ac79de')
 ## https://developers.line.biz/en/ your official account
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
