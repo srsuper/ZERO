@@ -784,7 +784,7 @@ def handle_text_message(event):
 		bubble = BubbleContainer(
 			direction='ltr',
 			hero=ImageComponent(
-				url='https://globalassets.starbucks.com/assets/71d2dc1df70c41ca91e8aae0b3fd3e36.jpg',
+				url='https://obs.line-scdn.net/{}".subject.picture_url',
 				size='full',
 				aspect_ratio='4:3',
 				aspect_mode='cover',
