@@ -13,3 +13,4 @@ pafy==0.5.4
 tweepy
 beautifulsoup4
 pandas==0.20.3
+xlrd
