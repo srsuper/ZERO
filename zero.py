@@ -8,9 +8,7 @@ from urbandictionary_top import udtop
 from googletrans import Translator
 from flask import Flask, request, abort
 from bs4 import BeautifulSoup as bs
-import numpy as np
 import pandas as pd
-import requests
 from linebot import (
 	LineBotApi, WebhookHandler
 )
