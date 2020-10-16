@@ -549,12 +549,13 @@ def handle_text_message(event):
 				result += entry.definition
 		return result
 	
-dat = pd.read_excel('addb.xlsx')
-def getdata(query):
-    res = dat[dat['QueryWord']==query]
-    if len(res)==0:
-        return 'nodata'
-    else:
+        dat = pd.read_excel('addb.xlsx')
+	
+          def getdata(query):
+          res = dat[dat['QueryWord']==query]
+          if len(res)==0:
+          return 'nodata'
+        else:
         productName = res['ProductName'].values[0]
         imgUrl = res['ImgUrl'].values[0]
         desc = res['Description'].values[0]
@@ -622,8 +623,8 @@ def flexmessage(query):
             }
           ]
         }
-      }'''%(imgUrl,productName,desc,cont)
-    return flex
+       }'''%(imgUrl,productName,desc,cont)
+       return flex
 
 	if text == '/help':
 		line_bot_api.reply_message(
