@@ -23,7 +23,7 @@ save_file = {}
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('+d9rt9Qt1jlaTzhwvT0hH3zUaORk+V6hniTR4Gva7lGdSvM0l1T3lTC3hNpGOibM0w6cZLQG1QkIit/cg80cVcpHX+os1Yk4vm1nbgdvUU/S7mpVz1UIinyUjPS4xKFcaDizHBBoojhfRnPLNRlGoQdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('15a21aec7a0c6f363b3c264c1c97da4f')
+handler = WebhookHandler('2fd385bfb4f9b32e6ff313ec4a324033')
 ## https://developers.line.biz/en/ your official account
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
