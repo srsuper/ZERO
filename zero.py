@@ -546,7 +546,6 @@ def handle_text_message(event):
 				result += entry.definition
 		return result
 	
-
 	if text == '/help':
 		line_bot_api.reply_message(
 				event.reply_token,
@@ -784,7 +783,7 @@ def handle_text_message(event):
 		bubble = BubbleContainer(
 			direction='ltr',
 			hero=ImageComponent(
-				url='https://obs.line-scdn.net/{}".subject.picture_url',
+				url='https://globalassets.starbucks.com/assets/71d2dc1df70c41ca91e8aae0b3fd3e36.jpg',
 				size='full',
 				aspect_ratio='4:3',
 				aspect_mode='cover',
