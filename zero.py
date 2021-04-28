@@ -126,8 +126,8 @@ def handle_text_message(event):
 	
 	def fdetect(url) :
 		http_url = 'https://api-us.faceplusplus.com/facepp/v3/detect'
-		key = "YOUR_FACE++_KEY"
-		secret = "YOUR_FACE++_SECRET"
+		key = "xNJFQqVUPZep0dUUL5mjHNi8WTSgRM__"
+		secret = "PnPQ-MH2Wgz8Ahqp9AWAZwL5pTf0Azsz"
 		attributes="age,gender,ethnicity,beauty"
 		
 		##more info of thr api on https://api-us.faceplusplus.com
@@ -395,8 +395,8 @@ def handle_text_message(event):
 		return (str(data['cover url']))
 	
 	def ox(keyword):
-		oxdict_appid = ('YOUR_OXFORDDICTIONARIES_APPID')
-		oxdict_key = ('YOUR_OXFORDDICTIONARIES_KEY')
+		oxdict_appid = ('2a64bc22')
+		oxdict_key = ('8df8ec78bcd7c9ad2f0659b9f389ae15')
 	##more info of thr api on https://od-api.oxforddictionaries.com
 		word = quote(keyword)
 		url = ('https://od-api.oxforddictionaries.com:443/api/v2/entries/en/{}'.format(word))
@@ -427,13 +427,13 @@ def handle_text_message(event):
 
 	
 	def wolfram(query):
-		wolfram_appid = ('YOUR_WOLFRAMALPHA_APPID')
+		wolfram_appid = ('G7374R-7H6TXTYLR2')
 
 		url = 'https://api.wolframalpha.com/v2/result?i={}&appid={}'
 		return requests.get(url.format(quote(query), wolfram_appid)).text
 		
 	def wolframs(query):
-		wolfram_appid = ('YOUR_WOLFRAMALPHA_APPID')
+		wolfram_appid = ('G7374R-7H6TXTYLR2')
 
 		url = 'https://api.wolframalpha.com/v2/simple?i={}&appid={}'
 		return url.format(quote(query), wolfram_appid)
